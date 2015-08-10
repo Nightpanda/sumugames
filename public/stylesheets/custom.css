@@ -1,0 +1,109 @@
+.navbar-brand
+{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	text-align: center;
+	margin: auto;
+}
+
+/*
+Row with equal height columns
+*/
+/*
+.row-eq-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}*/
+
+.thumbnail {
+	background: #728FA1;
+	width: auto;
+	height: auto;	
+}
+.panel-body {
+	background: #728FA1;
+}
+
+.panel-default > .panel-heading {
+	background-color: #728FA1; 
+	color: #FFF;
+}
+
+/*
+Full background colored
+*/
+
+html,
+body {
+	height: 100%;
+	background-color: #A1B3B9;
+	color: #fff;
+/*	background: #CED98C repeat-y 50% 0;*/
+}
+
+.footer {
+	background-color: #D9E4EF;
+}
+
+.navbar-default {
+	background-color: #D9E4EF;
+	border-color: #D9E4EF; 
+}
+
+.carousel {
+	height: 500px;
+	margin-bottom: 60px;
+	background-color:#c9cbf8;
+}
+.carousel-caption{
+	position: absolute;
+	z-index: 10;
+	left: 50%;
+	right: 15%;
+	bottom: 0%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #000;
+	text-align: center;
+
+
+}
+
+.carousel .item {
+	height: 500px;
+	background-color:#c9cbf8;
+}
+
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img
+{
+	
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 50%;
+      height: 500px;   
+}
+
+.jumbotron {
+	color: #000;
+	background-color: #728FA1;
+	background-image: url("public/images/Samurai_promo.png");
+	background-size: cover;
+}
+
+input, text{
+	color: #728FA1;
+}
+
+button {
+	color: #728FA1;
+}
+
+a {
+	color: #FFF;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sumu Games</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" >
+
+    <!-- Optional theme -->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> -->
+    <link href="public/stylesheets/custom.css" rel="stylesheet">
+    
+    
+    <!-- Latest compiled and minified JavaScript loadeded at the end-->
+    
+    
+    
+    
+  </head>
+
+  <body ng-app='sumuRouter'>
+
+  <!-- static navbar-->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <a class="navbar-brand" ui-sref="home">Sumu Games</a>
+      <!--<img alt="Sumu Games" src="images/SUMU.png">-->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li> <a ui-sref="home">Home</a></li>
+        <li> <a ui-sref="game">Games</a></li>
+        <li> <a ui-sref="blogposts">Blogs</a></li>
+        <li> <a ui-sref="about">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  </nav>
+    
+  
+
+    
+
+  
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="text-center">
+          <!--Main panel-->
+          <ui-view></ui-view>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="container">
+    <address>
+      <p class="text-center">
+      <a href="mailto:#">tiilikap@gmail.com</a><br>
+      <a href="">Twitter</a><br>
+      <a href="">Facebook</a><br>
+      <a href="">Youtube</a><p>
+    </address>
+    
+  </div>
+  </footer>
+  <!-- Jquery? -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <!--Load javascripts here to make page load faster -->
+    <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+    <script src = "//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <script src= "//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-resource.js"></script>
+
+    <script src="public/javascripts/angularApp.js"></script>
+    <script src="public/javascripts/services.js"></script>
+  </body>
+
+</html>
