@@ -8,35 +8,47 @@
 	<button type="submit">Post</button>
 </form>-->
 
-<!-- show current post in main panel!-->
-<div class="col-xs-12 col-sm-9">
+<!-- show newest post in main panel!-->
+<div class="col-xs-8">
   <div class="panel panel-default">
   <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
-  	<div class="panel-body">
-  	   		<section>
-			<div ng-repeat="paragraph in singlePost.body">
+  <div class="panel-body">
+  	   	<section>
+		<div ng-repeat="paragraph in singlePost.body">
 			<p class="text-left">{{paragraph}}<br></p>
-			</div>
-			<p class="text-center">
-			<br>
-			{{singlePost.author}}
-			<br>
-			{{singlePost.date}}
-			</p>
-			</section>
 		</div>
-	</div>
+		<p class="text-center">
+		<br>
+		{{singlePost.author}}
+		<br>
+		{{singlePost.date}}
+		</p>
+		</section>
+  </div>
+  </div>
 	<!--
 	<div class="panel panel-default">
-		<div class="panel-heading"><h2>Disqus come here</h2></div>
-		<div class="panel-body">
-			<dir-disqus disqus-shortname="sumugames"
-        		disqus-identifier="{{ singlePost._id }}"
-         		disqus-url="{{ url }}">
-			</dir-disqus>
+	<div class="panel-heading"><h2>Disqus come here</h2></div>
+	<div class="panel-body"></div>
+	</div>
+	-->
+</div>
+<!-- Show all blog-posts in a side panel -->
+<div class="col-xs-4">
+  <div class="panel panel-default">
+  <div class="panel-heading"> <h3> Old posts: </h3> </div>
+  	<div class="panel-body">
+    	
+        	<p class="text-center">
+
+				<div ng-repeat="post in blogPosts">
+					<a ui-sref="singlepost({postId: post._id})">{{post.title}}</a>
+					<!--<button type="button" class="btn btn-link"><a ui-sref="singlepost({postId: post._id})" class="text-default">{{post.title}}</a></button>-->
+				</div>
+			</p>
 		</div>
 	</div>
--->
+</div>
 
 	<!--Let the user be nice and post a comment-->
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
@@ -85,21 +97,6 @@
 </div>
 </div>
 
-<!-- Show all blog-posts in a side panel -->
-<div class="col-xs-3">
-  <div class="panel panel-default">
-  <div class="panel-heading"> <h3> Old posts: </h3> </div>
-  	<div class="panel-body">
-    	
-        	<p class="text-center">
 
-				<div ng-repeat="post in blogPosts">
-					<a ui-sref="singlepost({postId: post._id})">{{post.title}}</a>
-					<!--<button type="button" class="btn btn-link"><a ui-sref="singlepost({postId: post._id})" class="text-default">{{post.title}}</a></button>-->
-				</div>
-			</p>
-		</div>
-	</div>
-</div>
 
 
