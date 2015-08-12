@@ -1,15 +1,22 @@
 // angularApp.js
-var sumuRouter = angular.module('sumuRouter', ['ui.router', 'sumuServices'])//, 'gitServices2'])
+var sumuRouter = angular.module('sumuRouter', ['ui.router', 'sumuServices', 'ngAnimate', 'anim-in-out'])//, 'angularUtils.directives.dirDisqus']) //'angularUtils.directives.dirDisqus'
 .config([
 '$stateProvider',
 '$urlRouterProvider',
+//'$locationProvider',
 
-function($stateProvider, $urlRouterProvider) {
+//'$locationProvider.hashPrefix('!')', //Not needed if in html5 mode
+
+
+function($stateProvider, $urlRouterProvider, $locationProvider) {
+    $urlRouterProvider.otherwise('home');
+    //$locationProvider.html5Mode(true); //For disqus directive to work https://github.com/michaelbromley/angularUtils/tree/master/src/directives/disqus
+
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'public/templates/home.html'
-            //controller: 'MainCtrl'
+            templateUrl: 'public/templates/home.html',
+            controller: 'gamesCtrl'
         })
 
         .state('about', {
@@ -19,8 +26,16 @@ function($stateProvider, $urlRouterProvider) {
         })
 
         .state('game', {
-            url: '/game',
-            templateUrl: 'public/templates/game.html'
+            url: '/games/{gameName}',
+            templateUrl: 'public/templates/game.html',
+            controller: 'singleGameCtrl'
+            
+        })
+
+        .state('games', {
+            url: '/games',
+            templateUrl: 'public/templates/games.html',
+            controller: 'gamesCtrl'
             
         })
 
@@ -37,7 +52,8 @@ function($stateProvider, $urlRouterProvider) {
             controller: 'singleBlogCtrl'
         });
 
-        $urlRouterProvider.otherwise('home');
+        
+        
 }])
 
 
@@ -46,12 +62,16 @@ function($stateProvider, $urlRouterProvider) {
     'blogApi',
     '$stateParams',
     function ($scope, blogApi, $stateParams){
-        //$scope.blogPosts = blogApi.query(); //Send a request to get all posts (response defined in services.js)
+        $scope.blogPosts = blogApi.query(); //Send a request to get all posts (response defined in services.js)
+        /*
         blogApi.query().$promise.then(function (results) {
             // success
             $scope.blogPosts = results;
+
         });
+        */  
         console.log($scope.blogPosts);
+        
         //It's now an array of all the blogposts
         //find the newest blogpost Id
 
@@ -90,23 +110,6 @@ function($stateProvider, $urlRouterProvider) {
         $scope.formtext = '';
         $scope.formauthor = '';
         };
-    //Add a comment to a single blogpost
-    $scope.addComment = function(){
-        if(!$scope.formtext || $scope.formtext === '') { return; }        
-
-        var newComment = {body: $scope.formtext, author: $scope.formauthor};
-        blogApi.save({postId: latestBlog._id}, newComment);
-
-        $scope.formtitle = '';
-        $scope.formtext = '';
-        $scope.formauthor = '';
-        };
-    //Upvote a single comment
-    /*
-    $scope.incrementUpvotes = function() {
-        $scope.singleBlogPost.comment.upvotes += 1;
-        }
-    */
 
     }
 ])
@@ -129,6 +132,7 @@ function($stateProvider, $urlRouterProvider) {
         
         //console.log(allComments);
         $scope.singlePost = result;
+        $scope.url = $stateParams.postId;
         });
 
     //Add a comment to a single blogpost
@@ -138,59 +142,83 @@ function($stateProvider, $urlRouterProvider) {
 
         //Read the information of the comment
         var newComment = {body: $scope.formtext, author: $scope.formauthor};
-        //var newComment = new blogApi();
-        //newComment.body = $scope.formtext;
-        //newComment.author = $scope.formauthor;
-        //currentBlog.comments.push(newComment);
-        //console.log(currentBlog.comments);
 
-        //push a new comment to the end of the array
-        //currentBlog.comments.push(newComment);
-        //allComments = currentBlog.comments;
-        //console.log(currentBlog.comments);
-        //allComments.push(newComment);
-        //dave the blog so the comment sticks
-        //console.log(currentBlog._id);
-        //console.log(newComment);
-        //console.log(currentBlog);
         blogApi.save({postId: currentBlog._id}, newComment);
-
-
-        //Save it inside the current blogpost
-        //new comment
-
-        //var newComment = new blogApi();
-        //var singlePost = new blogApi.get({postId: $stateParams.postId});
-        //console.log(singlePost);
-        //var allComments = singlePost.comments;
-        //console.log(allComments);
-
-        //Put the data from the form into the new instance
-        //singlePost.comments = {title: $scope.formtitle, body: $scope.formtext, author: $scope.formauthor};
-        
-
-        //blogApi.save({postId: currentBlog._id}, newComment)
-        //newComment.save();
-        //singlePost.$save();
-        //newComment.save({postId: $stateParams.postId}, newComment);
-        //allComments.update({postId: $stateParams.postId}, {comments: {title: $scope.formtitle, body: $scope.formtext, author: $scope.formauthor}});
-        //allComments.update({postId: $stateParams.postId}, {comments: {title: $scope.formtitle, body: $scope.formtext, author: $scope.formauthor}});
-        //blogApi.update({postId: $stateParams.postId}, {comments: {title: $scope.formtitle, body: $scope.formtext, author: $scope.formauthor}});
-        //blogApi.save({comments: {title: $scope.formtitle, body: $scope.formtext, author: $scope.formauthor}});
-
-        //newComment.save({postId: $stateParams.postId}) //Simply save the new comment to the mass
-        //$scope.singleBlogPost.comments.save({newComment.title, newComment.body, newComment.author}, function(){});
 
         $scope.formtitle = '';
         $scope.formtext = '';
         $scope.formauthor = '';
         };
-    //Upvote a single comment
-    $scope.incrementUpvotes = function() {
-        $scope.singleBlogPost.comment.upvotes += 1;
-        }
-
     }
 
+])
+
+.controller('gamesCtrl', [
+    '$scope',
+    'gameApi',
+    '$stateParams',
+    function ($scope, gameApi, $stateParams){
+        $scope.gamePosts = gameApi.query(); //Send a request to get all posts (response defined in services.js)
+        //It's now an array of all the blogposts
+        //find the newest blogpost Id
+
+        $scope.gamePosts.$promise.then(function (result) {
+            arrayGames = $scope.gamePosts;
+  
+            lenGames = arrayGames.length;
+            latestGame = arrayGames[lenGames-1];
+            gameId = latestGame._id;
+            $scope.singleGamePost = gameApi.get({gameName: gameId }); //Request to get data of a single post.
+        });
+
+
+        
+
+        
+    //Add a single blogpost with ngresource method save
+    $scope.addGamePost = function(){
+        //if(!$scope.formtitle || $scope.formtitle === '') { return; } //if no title has been submited, don't post
+        //if(!$scope.formtext || $scope.formtext === '') { return; }
+        //if(!$scope.formauthor || $scope.formauthor === '') { return; } 
+    
+        //create a new instance to save
+        var newBlog = new gameApi();
+        //Put the data from the form into the new instance
+        newBlog.title = $scope.formtitle;
+        newBlog.body = $scope.formtext;
+        newBlog.features = $scope.formfeatures;
+        newBlog.downloadLink = $scope.formdownload;
+        newBlog.version = $scope.formversion;
+        newBlog.status =  $scope.formstatus;
+        newBlog.images = $scope.formimages;
+
+        newBlog.$save(); //Simply save the new Blogpost to the mass
+
+        $scope.formtitle = '';
+        $scope.formtext = '';
+        $scope.formauthor = '';
+        };
+    }
+])
+
+.controller('singleGameCtrl', [
+    '$scope',
+    //'commentApi',
+    'gameApi',
+    '$stateParams',
+    //Get the information of a single blogpost.
+    function ($scope, gameApi, $stateParams){
+        
+        $scope.gamePosts = gameApi.query(); //Send a request to get all posts (response defined in services.js)
+        console.log("client side request for single game");
+
+
+        $scope.singleGamePost = gameApi.get({gameName: $stateParams.gameName}); //Request to get data of a single post.
+        
+        $scope.singleGamePost.$promise.then(function (result) {
+            currentGame = $scope.singleGamePost;
+            $scope.singleGamePost = result;
+        });
+    }
 ])
     

@@ -1,0 +1,13 @@
+{
+    "_id": 1,
+    "title": "Beginnings",
+    "body": [
+    			"<a href='www.google.fi'>Twitter</a> Hello reader, yes you! Welcome to the blog/website of Plan E for Epic! You’ll find information about our team and the current game we are working on. The blog part might give you some insights on game development, unity, graphics, story-telling and whatever else we’ll be writing about based on our experiences during this project. The project is a part of a game development training course for the unemployed.",
+				"The original game idea came from Juho, he pitched an adventurous roguelike pirate-game. Our team took that idea and started re-defining it. We had a chance for a strong story because of our resident manuscript-writer Niina. So we decided to try and take a sidestep from the usual roguelike genre and create a story-driven version with an everchanging island.",
+				"Our graphic-designer Petri will be creating the art-style in 2d, which will be portrayed in a 3d world. We have two code-monkeys in our team, Juho and myself (Pekka). We’ll make the game in unity and code mostly with C#. I’ll be also taking some responsibility with project management, website handling since I have experience with that and just being a general all-around wizard who works 24/7. Hopefully not..",
+				"Our first goal is to create a testable prototype by July. We will use this website to post blog-updates on where we are and perhaps even some more spesific blog-posts from our members."
+			],
+    "images": [],
+    "author": "Pekka Tiilikainen",
+    "date": "13.09.2015"
+}

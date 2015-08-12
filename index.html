@@ -11,6 +11,13 @@
     <!-- Optional theme -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> -->
     <link href="public/stylesheets/custom.css" rel="stylesheet">
+
+    <!--<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">-->
+    <link rel="stylesheet" href="public/stylesheets/bootstrap-image-gallery.min.css"> <!--Blueimg gallery for nice picture galleries-->
+    <link rel="stylesheet" href="public/stylesheets/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="public/stylesheets/anim-in-out.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> <!--"Font Awesome by Dave Gandy - http://fontawesome.io"-->
     
     
     <!-- Latest compiled and minified JavaScript loadeded at the end-->
@@ -21,7 +28,7 @@
   </head>
 
   <body ng-app='sumuRouter'>
-
+  
   <!-- static navbar-->
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
@@ -30,7 +37,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li> <a ui-sref="home">Home</a></li>
-        <li> <a ui-sref="game">Games</a></li>
+        <li> <a ui-sref="games">Games</a></li>
         <li> <a ui-sref="blogposts">Blogs</a></li>
         <li> <a ui-sref="about">About Us</a></li>
       </ul>
@@ -44,32 +51,63 @@
 
   
 
-
-  <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-md-12">
-        <p class="text-center">
+      <!--<ul class="list-inline text-center">-->
+        <!--<p class="text-center">-->
           <!--Main panel-->
-          <ui-view></ui-view>
-        </p>
+          <div ui-view class="anim-in-out anim-fade" data-anim-speed="500"></div>
+        <!--</p>-->
+      <!--</ul>-->
       </div>
     </div>
-  </div>
+<!--</div>-->
+
+
 
   <footer class="footer">
-  <div class="container">
-    <address>
-      <p class="text-center">
-      <a href="mailto:#">tiilikap@gmail.com</a><br>
-      <a href="">Twitter</a><br>
-      <a href="">Facebook</a><br>
-      <a href="">Youtube</a><p>
-    </address>
-    
+  <!--<div class="container">-->
+   <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center">
+      <li>
+      <!--<p class="text-center">-->
+      <!--<a href="mailto:#">tiilikap@gmail.com</a><br>-->
+      <a href="http://www.twitter.com/sumugames">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+          </span>
+      </a>
+      </li>
+      <li>
+      <a href="http://www.facebook.com/sumugames">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      </li>
+      <li>
+      <a href="http://www.youtube.com/sumugames">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      </li>
+    <p class="copyright text-muted">Copyright &copy; Sumu Games 2015</p>
+    </div>
   </div>
+    
+    
+  
   </footer>
+  </div>
   <!-- Jquery? -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <!--Load javascripts here to make page load faster -->
     <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
@@ -78,6 +116,14 @@
 
     <script src="public/javascripts/angularApp.js"></script>
     <script src="public/javascripts/services.js"></script>
+    <!--<script src="public/javascripts/dirDisqus.js"></script>--> <!--Disqus for comments-->
+    <script src="public/javascripts/directorySlider.js"></script><!-- directorySlider Javascript file -->
+    <script src="public/javascripts/anim-in-out.js"></script>
+    <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script><!--blueimp gallery-->
+    <script src="public/javascripts/bootstrap-image-gallery.min.js"></script>
+    <script src="public/javascripts/blueimp-gallery.min.js"></script>
+
+    <script src="http://code.angularjs.org/1.2.2/angular-animate.min.js"></script> <!-- animations -->
   </body>
 
 </html>

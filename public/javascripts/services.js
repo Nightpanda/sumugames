@@ -3,11 +3,13 @@ var sumuServices = angular.module('sumuServices', ['ngResource']);
 //A factory that will take handling requests from controllers and deliver them onwards
 sumuServices.factory('blogApi', ['$resource',
 	function($resource) {
-		return $resource('public/blogs/:postId', {}, {
+		//return $resource('public/blogs/:postId', {}, {
+		return $resource('http://192.168.51.73:8080/blogs/:postId', {}, {
+		//return $resource('http://192.168.51.73:8080/public/users/:user',{}, {
 			query: {
 				method:'GET', 
 				params:{
-					postId: ''
+					postId: 'blogIndex'
 				}, 
 				isArray:true,
 			},
@@ -17,18 +19,20 @@ sumuServices.factory('blogApi', ['$resource',
 		});
 	}]);
 
-/*
-blogServices.factory('commentApi', ['$resource',
+
+sumuServices.factory('gameApi', ['$resource',
 	function($resource) {
-		return $resource('blog/:postId', {}, {
+	return $resource('http://192.168.51.73:8080/games/:gameName', {}, {
+		//return $resource('http://192.168.51.73:8080/public/users/:user',{}, {
 			query: {
 				method:'GET', 
 				params:{
-					postId: ''
+					gameName: 'gameIndex'
 				}, 
 				isArray:true,
-				//headers:{'Content-Type':'application/vnd.github.v3.raw+json; charset=UTF-8'}
+			},
+			update: {
+				method:'PUT'				
 			},
 		});
 	}]);
-*/

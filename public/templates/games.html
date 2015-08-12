@@ -1,77 +1,72 @@
 <!-- write new blog-post-->
 <!--
-<p> For testing purposes, post a new blog post.</p>
-<form ng-submit="addBlogPost()">
+<p> For testing purposes, post a new game post.</p>
+<form ng-submit="addGamePost()">
   <input type="text" placeholder="Title" ng-model="formtitle"></input>
   <textarea ng-model="formtext" placeholder="Text"></textarea>
-  <input type="text" placeholder="Author" ng-model="formauthor"></input>
+  <input type="text" placeholder="Features" ng-model="formfeatures"></input>
+  <input type="text" placeholder="DownloadLink" ng-model="formdownload"></input>
+  <input type="text" placeholder="Version" ng-model="formversion"></input>
+  <input type="text" placeholder="Status" ng-model="formstatus"></input>
+  <input type="text" placeholder="Images" ng-model="formimages"></input>
   <button type="submit">Post</button>
-</form>-->
-
-<!-- show current post in main panel!-->
-<div class="col-xs-12 col-sm-9">
-  <div class="panel panel-default">
-  <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
-    <div class="panel-body">
-        
-      <div ng-repeat="paragraph in singlePost.body">
-      <p class="text-left">{{paragraph}}<br></p>
-      </div>
-      <p class="text-center">
-      <br>
-      {{singlePost.author}}
-      <br>
-      {{singlePost.date}}
-      </p>
-    </div>
-  </div>
-  <div class="panel panel-default">
-  <div class="panel-heading"><h2>Leave a comment!</h2></div>
-  <div class="panel-body">
-
-  <!--Let the user be nice and post a comment-->
-    <form ng-submit="addComment()">
-      <input type="text" placeholder="Text" ng-model="formtext"></input>
-      <input type="text" placeholder="Author" ng-model="formauthor"></input>
-      <button type="submit">Comment</button>
-    </form>
-  </div>
-  </div>
-
-  <div class="panel panel-default">
-  <div class="panel-heading"><h2>Previous Comments</h2></div>
-  <div class="panel-body">
-
-  <!-- Show all comments about this post -->
-    <div ng-repeat="comment in singlePost.comments | orderBy: '-upvotes'">
-    <div class="media">
-      <div class="media-body"><!--<span ng-click="incrementUpvotes(comment)">^</span>-->
-      <h5 class="media-heading">{{comment.author}}</h5>
-      <!--<td>Upvotes: {{comment.upvotes}}</td>-->
-      {{comment.body}}
+</form>
+-->
+<div class="row">
+    <div class="col-lg-3 col-sm-5 col-xs-9 animate-column" ng-repeat="game in gamePosts">
+      <a ui-sref="game({gameName: game._id})">
+        <img ng-src="public/images/{{game._id}}/thumb.png" class="thumbnail img-responsive">
+      </a>
+      <div class="caption">
+        <h3>{{game.title}}</h3>
       </div>
     </div>
-    
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- Show all blog-posts in a side panel -->
+    <!-- Show all blog-posts in a side panel -->
+<!--
 <div class="col-xs-3">
   <div class="panel panel-default">
-  <div class="panel-heading"> <h3> Old posts: </h3> </div>
+  <div class="panel-heading"> <h3> All games: </h3> </div>
     <div class="panel-body">
       
           <p class="text-center">
 
-        <div ng-repeat="post in blogPosts">
-          <a ui-sref="singlepost({postId: post._id})">{{post.title}}</a>
-          <!--<button type="button" class="btn btn-link"><a ui-sref="singlepost({postId: post._id})" class="text-default">{{post.title}}</a></button>-->
+        <div ng-repeat="game in gamePosts">
+          <a ui-sref="game({gameName: game._id})">{{game.title}}</a>
         </div>
       </p>
     </div>
   </div>
 </div>
+-->
+</div>
 
+<!-- show newest game in main panel!
+<div class="col-xs-12 col-sm-9">
+  <div class="panel panel-default">
+  <div class="panel-heading"> <h1> {{singleGamePost.title}} </h1> </div>
+    <div class="panel-body">
+        
+      <div ng-repeat="paragraph in singleGamePost.body">
+      <p class="text-left">{{paragraph}}<br></p>
+      </div>
+      <p class="text-center">
+      <br>
+      {{singleGamePost.features}}
+      <br>
+      {{singleGamePost.version}}
+      <br>
+      {{singleGamePost.status}}
+      </p>
+    </div>
+  </div>
+  <div class="panel panel-default">
+  <div class="panel-heading"><h2>Disqus</h2></div>
+  <div class="panel-body"></div>
+
+  Let the user be nice and post a comment
+  
+  </div>
+  </div>-->
+
+    
 

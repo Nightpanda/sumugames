@@ -13,7 +13,7 @@
   <div class="panel panel-default">
   <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
   	<div class="panel-body">
-  	   	
+  	   		<section>
 			<div ng-repeat="paragraph in singlePost.body">
 			<p class="text-left">{{paragraph}}<br></p>
 			</div>
@@ -23,38 +23,66 @@
 			<br>
 			{{singlePost.date}}
 			</p>
+			</section>
 		</div>
 	</div>
+	<!--
 	<div class="panel panel-default">
-	<div class="panel-heading"><h2>Leave a comment!</h2></div>
-	<div class="panel-body">
+		<div class="panel-heading"><h2>Disqus come here</h2></div>
+		<div class="panel-body">
+			<dir-disqus disqus-shortname="sumugames"
+        		disqus-identifier="{{ singlePost._id }}"
+         		disqus-url="{{ url }}">
+			</dir-disqus>
+		</div>
+	</div>
+-->
 
 	<!--Let the user be nice and post a comment-->
-		<form ng-submit="addComment()">
-			<input type="text" placeholder="Text" ng-model="formtext"></input>
-			<input type="text" placeholder="Author" ng-model="formauthor"></input>
-			<button type="submit">Comment</button>
-		</form>
-	</div>
-	</div>
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<div class="panel panel-default">
-	<div class="panel-heading"><h2>Previous Comments</h2></div>
-	<div class="panel-body">
-
-	<!-- Show all comments about this post -->
-		<div ng-repeat="comment in singlePost.comments | orderBy: '-upvotes'">
-		<div class="media">
-			<div class="media-body"><!--<span ng-click="incrementUpvotes(comment)">^</span>-->
-			<h5 class="media-heading">{{comment.author}}</h5>
-			<!--<td>Upvotes: {{comment.upvotes}}</td>-->
-			{{comment.body}}
-			</div>
-		</div>
-		
-		</div>
-	</div>
-	</div>
+<div class="row">
+<div ng-repeat="image in singlePost.images">
+<div id="links">
+    <a ng-href="public/images/{{singlePost._id}}/{{image}}" title="{{image}}" data-gallery>
+      <div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="public/images/{{singleGamePost._id}}/thumbnails/{{image}}" alt="{{image}}" class="thumbnail img-responsive"></div>
+    </a>
+</div>
+</div>
+</div>
 </div>
 
 <!-- Show all blog-posts in a side panel -->

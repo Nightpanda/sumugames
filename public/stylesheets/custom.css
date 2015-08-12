@@ -1,10 +1,11 @@
 .navbar-brand
 {
-	position: absolute;
-	width: 100%;
+	position: relative;
+	/*width: 100%;*/
 	left: 0;
 	text-align: center;
-	margin: auto;
+	/*margin: auto;*/
+	/*padding-right: 20px;*/
 }
 
 /*
@@ -43,10 +44,22 @@ body {
 	color: #fff;
 /*	background: #CED98C repeat-y 50% 0;*/
 }
-
+.footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:70px;
+    width:100%;
+    background:#D9E4EF;
+}
+/*
 .footer {
 	background-color: #D9E4EF;
+	width: 100%;
+    padding-top: 20px;
+    position: relative;
 }
+*/
 
 .navbar-default {
 	background-color: #D9E4EF;
@@ -90,9 +103,9 @@ body {
 }
 
 .jumbotron {
-	color: #000;
+	color: #FFF;
 	background-color: #728FA1;
-	background-image: url("public/images/Samurai_promo.png");
+	background-image: url("../images/Samurai_promo.png");
 	background-size: cover;
 }
 
@@ -105,5 +118,55 @@ button {
 }
 
 a {
-	color: #FFF;
+	/*color: #FFF;*/
 }
+
+/*Animations get defined like this*/
+.animate-column.ng-enter,
+.animate-column.ng-leave,
+.animate-column.ng-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+.animate-column.ng-enter,
+.animate-column.ng-move {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.animate-column.ng-move.ng-move-active,
+.animate-column.ng-enter.ng-enter-active {
+  opacity: 1;
+  height: 120px;
+}
+
+.animate-column.ng-leave {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.animate-column.ng-leave.ng-leave-active {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/*Circular image*/
+.circular {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(http://link-to-your/image.jpg) no-repeat;
+	}
+
+.circular img {
+	opacity: 0;
+	filter: alpha(opacity=0);
+	}

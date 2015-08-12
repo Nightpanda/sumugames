@@ -1,0 +1,53 @@
+{
+    "_id": "samureye",
+    "title": "Sam, Ur Eye!",
+    "body": [
+    			"The village eldest, the last man standing, against the young punks.",
+				"Blood will be spilt."
+			],
+    "images": [],
+    "features": 
+    [
+        "feature1",
+        "feature2"
+    ],
+    "version": "v0.2a",
+    "status": "In development",
+    "platforms": [
+        {
+        "platform": "PC",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "MAC",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "Linux",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "Android",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "HTML5",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        }
+    ]
+}

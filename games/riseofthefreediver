@@ -1,0 +1,63 @@
+{
+    "_id": "riseofthefreediver",
+    "title": "Rise of the Freediver",
+    "body": [
+    			"The sonuva freediver.",
+				"So much loot."
+			],
+     "images": 
+   [
+       "image001.png",
+        "image002.png",
+        "image003.png",
+        "image004.png",
+        "image005.png",
+        "image006.png",
+        "image007.png",
+        "image008.png"
+   ],
+    "features": 
+    [
+        "feature1",
+        "feature2"
+    ],
+    "version": "v1.0",
+    "status": "Released",
+    "platforms": [
+        {
+        "platform": "PC",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "MAC",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "Linux",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "Android",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        },
+        {
+        "platform": "HTML5",
+        "link": "http://www.sumugames.com",
+        "size": "xxx MB",
+        "stability": "Tested",
+        "Version": "0.1a"
+        }
+    ]
+}
