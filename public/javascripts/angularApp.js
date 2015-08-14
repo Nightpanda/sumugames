@@ -83,7 +83,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             arrayBlogs = $scope.blogPosts;
   
             lenBlogs = arrayBlogs.length;
-            latestBlog = arrayBlogs[lenBlogs-1];
+            latestBlog = arrayBlogs[0];
             console.log(latestBlog);
             blogId = latestBlog._id;
             console.log(latestBlog._id);
@@ -149,6 +149,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             $scope.videoSource = path + result[i];
             $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
         });
+
 
     //Add a comment to a single blogpost
     $scope.addComment = function(){
@@ -259,9 +260,15 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
     //'commentApi',
     'gameApi',
     '$stateParams',
+    '$sce',
     //Get the information of a single blogpost.
-    function ($scope, gameApi, $stateParams){
+    function ($scope, gameApi, $stateParams, $sce){
         
+        var videos = [];
+        var i = 0;
+        var path = 'http://www.youtube.com/embed/';
+        var currentGame = {};
+
         $scope.gamePosts = gameApi.query(); //Send a request to get all posts (response defined in services.js)
         console.log("client side request for single game");
 
@@ -269,9 +276,42 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
         $scope.singleGamePost = gameApi.get({gameName: $stateParams.gameName}); //Request to get data of a single post.
         
         $scope.singleGamePost.$promise.then(function (result) {
-            currentGame = $scope.singleGamePost;
-            $scope.singleGamePost = result;
+            currentGame = result;
+            return currentGame;
+        })
+        .then(function (result) {
+            videos = currentGame.videos;
+            return videos;
+        })
+        .then(function (result) {
+            $scope.videoSource = path + result[i];
+            $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
         });
+
+        $scope.nextVideo = function(){
+            i++;
+            if (i == videos.length) {
+                i = 0;
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+            else {
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+        }
+        $scope.prevVideo = function(){
+            i -= 1;
+            if (i == -1) {
+                i = videos.length - 1;
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+            else {
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+        }
     }
 ])
     

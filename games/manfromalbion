@@ -14,6 +14,9 @@
         "slide_5.png",
         "slide_6.png"
    ],
+   "videos":
+   [
+   ],
     "features": 
     [
         "feature1",
@@ -27,35 +30,35 @@
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "MAC",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "Linux",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "Android",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "HTML5",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         }
     ]
 }

@@ -5,7 +5,21 @@
     			"The village eldest, the last man standing, against the young punks.",
 				"Blood will be spilt."
 			],
-    "images": [],
+    "images": 
+    [
+        "image001.png",
+        "image002.png",
+        "image003.png",
+        "image004.png",
+        "image005.png",
+        "image006.png",
+        "image007.png",
+        "image008.png"
+    ],
+    "videos":
+   [
+    "9SVMkSTAaH4"
+   ],
     "features": 
     [
         "feature1",
@@ -19,35 +33,35 @@
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "MAC",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "Linux",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "Android",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         },
         {
         "platform": "HTML5",
         "link": "http://www.sumugames.com",
         "size": "xxx MB",
         "stability": "Tested",
-        "Version": "0.1a"
+        "version": "0.1a"
         }
     ]
 }

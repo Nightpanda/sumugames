@@ -3,6 +3,8 @@
     <div class="directorySlider"></div>
   </div>
 </div>-->
+<div class="row">
+<div class="col-sm-24 col-md-12">
 <h2 class="text-center">Gallery</h2>
 <div ng-repeat="image in singleGamePost.images">
 <div id="links-games">
@@ -12,8 +14,7 @@
 </div>
 </div>
 
-<div class="row">
-<div class="col-sm-24 col-md-12">
+
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
@@ -68,52 +69,59 @@
   <div class="panel panel-default">
     <div class="panel-body">
       
-        <p class="text-center"><h2>{{singleGamePost.title}}</h2> <h5>{{singleGamePost.version}} {{singleGamePost.status}}</h5> <br>
+        <h2 class="text-center">{{singleGamePost.title}}</h2> <h5 class="text-center">{{singleGamePost.version}} {{singleGamePost.status}}</h5> <br>
         <br>
         <div ng-repeat="paragraph in singleGamePost.body">
           <p class="text-left">{{paragraph}}<br></p>
         </div>
-        </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="col-sm-24 col-md-12">
+        <div class="panel-body">
+        <div class="col-sm-24 col-md-12">
         <p class="text-center">
-          <h2> Features </h2>
+          <h3> Features </h3>
           <ul ng-repeat="feature in singleGamePost.features">
             <li> {{feature}}</li>
           </ul>
         </p>
       </div>
     </div>
+        
+    </div>
   </div>
 </div>
 
 <div class="row">
-    <table class="table table-bordered">
+    <table class="table table-condensed">
     <tbody>
     <tr>
       <th> Platform </th>
       <th> Size </th>
       <th> Link </th>
-      <th> Mirror </th>
       <th> Stability </th>
       <th> Version </th>
     </tr>
     <tr ng-repeat="platform in singleGamePost.platforms">
         <th>{{platform.platform}}</th>
         <th>{{platform.size}}</th>
-        <th> <a href="{{platform.link}}">download</a> </th>
+        <th> <a ng-href="{{platform.link}}">download</a> </th>
         <th> {{platform.stability}} </th>
         <th> {{platform.version}}</th>    
       </tr>
     </div>
   </tbody>
 </table>
+</div>
+
+<div class="row">
+<div class="col-xs-5">
+  <h2 class="text-center">Videos
+  <iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe>
+  
+  <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default" ng-click="prevVideo()">Prev</button>
+      <button type="button" class="btn btn-default" ng-click="nextVideo()">Next</button>
+  </div>
+  </h2>
+
 </div>
 
 <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
