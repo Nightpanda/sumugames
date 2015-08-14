@@ -7,13 +7,13 @@
 	<input type="text" placeholder="Author" ng-model="formauthor"></input>
 	<button type="submit">Post</button>
 </form>-->
-
+<div class="row">
 <!-- show newest post in main panel!-->
 <div class="col-xs-8">
+<article>
   <div class="panel panel-default">
   <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
   <div class="panel-body">
-  	   	<section>
 		<div ng-repeat="paragraph in singlePost.body">
 			<p class="text-left">{{paragraph}}<br></p>
 		</div>
@@ -23,9 +23,9 @@
 		<br>
 		{{singlePost.date}}
 		</p>
-		</section>
   </div>
   </div>
+</article> 
 	<!--
 	<div class="panel panel-default">
 	<div class="panel-heading"><h2>Disqus come here</h2></div>
@@ -35,12 +35,10 @@
 </div>
 <!-- Show all blog-posts in a side panel -->
 <div class="col-xs-4">
-  <div class="panel panel-default">
-  <div class="panel-heading"> <h3> Old posts: </h3> </div>
-  	<div class="panel-body">
-    	
+	<div class="panel panel-default">
+		<div class="panel-heading"> <h3> Old posts: </h3> </div>
+  		<div class="panel-body">
         	<p class="text-center">
-
 				<div ng-repeat="post in blogPosts">
 					<a ui-sref="singlepost({postId: post._id})">{{post.title}}</a>
 					<!--<button type="button" class="btn btn-link"><a ui-sref="singlepost({postId: post._id})" class="text-default">{{post.title}}</a></button>-->
@@ -49,14 +47,47 @@
 		</div>
 	</div>
 </div>
+</div>
+<div class="row">
+<div class="col-xs-9">
+<h2 class="text-center">Gallery</h2>
 
-	<!--Let the user be nice and post a comment-->
-<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div ng-repeat="image in singlePost.images">
+<div id="links-images">
+    <a ng-href="public/images/{{singlePost._id}}/{{image}}" title="{{image}}" data-gallery>
+    <div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="public/images/{{singlePost._id}}/{{image}}" alt="{{image}}" class="thumbnail img-responsive" width:"400" height:"350"></div>
+    </a>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-5">
+	<h2 class="text-center">Videos
+	<iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe>
+	
+	<div class="btn-group" role="group" aria-label="...">
+  		<button type="button" class="btn btn-default" ng-click="prevVideo()">Prev</button>
+  		<button type="button" class="btn btn-default" ng-click="nextVideo()">Next</button>
+	</div>
+	</h2>
+
+
+<!--<div id="links-videos">
+    <a ng-href="https://www.youtube.com/embed/{{video}}" type="text/html" youtube="{{video}}" poster="https://img.youtube.com/vi/{{video}}/maxresdefault.jpg" data-gallery>
+    <div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="https://img.youtube.com/vi/{{video}}/maxresdefault.jpg" alt="{{video}}" class="thumbnail img-responsive" width:"400" height:"350"></div>
+    </a>
+</div>-->
+</div>
+
+<!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
 <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
-    <h3 class="title"></h3>
+    <!--<h3 class="title"></h3>-->
     <a class="prev">‹</a>
     <a class="next">›</a>
     <a class="close">×</a>
@@ -85,18 +116,29 @@
         </div>
     </div>
 </div>
+<!--
+	<h2 class="text-center"> Image-gallery</h2>
 
-<div class="row">
-<div ng-repeat="image in singlePost.images">
-<div id="links">
-    <a ng-href="public/images/{{singlePost._id}}/{{image}}" title="{{image}}" data-gallery>
-      <div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="public/images/{{singleGamePost._id}}/thumbnails/{{image}}" alt="{{image}}" class="thumbnail img-responsive"></div>
-    </a>
-</div>
-</div>
-</div>
-</div>
+	<div ng-repeat="image in singlePost.images">
+		<div id="links">
+    		<a ng-href="public/images/{{singlePost._id}}/{{image}}" title="{{image}}" data-gallery>
+      		<div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="public/images/{{singlePost._id}}/{{image}}" alt="{{image}}" class="thumbnail img-responsive" width:"400" height:"350">
+      		</div>
+    		</a>
+		</div>
+	</div>
+	-->
 
 
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="public/javascripts/blueimp-gallery.min.js"> </script>
+<script src="public/javascripts/bootstrap-image-gallery.min.js"></script>
+<script src="public/javascripts/blueimp-gallery-youtube.js"> </script>
+
+<!--
+<script src="public/javascripts/blueimp-gallery.min.js"> </script>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="public/javascripts/blueimp-gallery-youtube.js"> </script>
+-->
 
 

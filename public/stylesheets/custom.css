@@ -53,7 +53,37 @@ body {
 }
 */
 
+/*Custom div-element to center vertically on the page*/
+.verticalCenter {
+	float:none;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:-4px;
+}
+.verticalCenter h3{
+	color: #FFF;
+}
+
+div.container4 {
+    height: 10em;
+    position: relative }
+div.container4 p {
+    margin: 0;
+    background: yellow;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+
 /*Background-images*/
+#bodybackground {
+	position: relative;
+	background: url("../images/hs-2006-14-a-hires_jpg.jpg") no-repeat black;
+}
+
+
+/*Use this to get an opace background image
 #bodybackground {
 	position: absolute;
 	background: black;
@@ -67,18 +97,18 @@ body {
 
     content : "";
     display: block;
-	/*background: url("../images/justNebula1610.png") no-repeat black;*/
 	background: url("../images/hs-2006-14-a-hires_jpg.jpg") no-repeat black;
 	opacity : 1.0;
 	z-index: -1;
 	width: 100%;
     height: 100%;
-
-    
-    
-
 }
+*/
 
+#main {
+	overflow:auto;
+	padding-bottom: 70px;
+}
 
 
 .footer{
@@ -89,6 +119,8 @@ body {
     width:100%;
     background:#5555bb;
     color: #FFF;
+    z-index: -1;
+    margin-bottom: 10px;
 }
 /*
 .footer {
@@ -100,6 +132,7 @@ body {
 */
 
 .navbar-default {
+	margin-top: 10px;
 	background-color: #5555bb;
 	border-color: #5555bb; 
 }
@@ -180,6 +213,12 @@ a {
 	color: #F57373;
 }
 
+h2 {
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color:  #E8CDF5;
+
+}
+
 /*Animations get defined like this*/
 .animate-column.ng-enter,
 .animate-column.ng-leave,
@@ -229,3 +268,9 @@ a {
 	opacity: 0;
 	filter: alpha(opacity=0);
 	}
+
+/*custom button*/
+.btn-default{
+	background: #220033;
+  	color: #E8CDF5;
+}

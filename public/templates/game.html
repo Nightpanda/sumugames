@@ -3,14 +3,23 @@
     <div class="directorySlider"></div>
   </div>
 </div>-->
+<h2 class="text-center">Gallery</h2>
+<div ng-repeat="image in singleGamePost.images">
+<div id="links-games">
+    <a ng-href="public/images/{{singleGamePost._id}}/{{image}}" title="{{image}}" data-gallery>
+      <div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="public/images/{{singleGamePost._id}}/thumbnails/{{image}}" alt="{{image}}" class="thumbnail img-responsive"></div>
+    </a>
+</div>
+</div>
 
-
+<div class="row">
+<div class="col-sm-24 col-md-12">
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
-    <h3 class="title"></h3>
+    <!--<h3 class="title"></h3>-->
     <a class="prev">‹</a>
     <a class="next">›</a>
     <a class="close">×</a>
@@ -39,21 +48,8 @@
         </div>
     </div>
 </div>
-
-<div class="row">
-<div ng-repeat="image in singleGamePost.images">
-<div id="links">
-    <a ng-href="public/images/{{singleGamePost._id}}/{{image}}" title="{{image}}" data-gallery>
-      <div class="col-lg-2 col-sm-2 col-xs-3"><img ng-src="public/images/{{singleGamePost._id}}/thumbnails/{{image}}" alt="{{image}}" class="thumbnail img-responsive"></div>
-    </a>
 </div>
 </div>
-</div>
-
-
-  
-
-
 <!--
   </div> 
     <ul class="list-group">
@@ -119,113 +115,20 @@
   </tbody>
 </table>
 </div>
+
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="public/javascripts/blueimp-gallery.min.js"> </script>
+<!--<script src="public/javascripts/blueimp-gallery-youtube.js"> </script>-->
+<script src="public/javascripts/bootstrap-image-gallery.min.js"></script>
 <!--
-    <tr>
-      <th>HTML5</th>
-      <th>96.9 MB</th>
-      <th> <a href="http://sumugames.com/samureye/">HTML5 WebGL player</a> </th>
-      <th> <a href="http://homes.jamk.fi/~I2019/html5/v011/">Play in your browser!</a> </th>
-      <th> Tested </th>
-      <th> v0.11</th>
-    </tr>
-    <tr>
-      <th> PC</th>
-      <th>17.9 MB</th>
-      <th> <a href="http://sumugames.com/samureye/builds/samureyeV011_PC.zip">Windows version zip</a> </th>
-      <th> <a href="https://drive.google.com/file/d/0B2vQhz9rrtU0UkswUUlXdmRUZHM">Windows version zip</a> </th>
-      <th> Tested </th>
-      <th> v0.11</th>
-    </tr>
-    <tr>
-      <th> Android</th>
-      <th>20.3 MB</th>
-      <th> <a href="http://sumugames.com/samureye/builds/samureyeV011_ANDROID.apk">Android version package</a> </th>
-      <th> <a href="https://drive.google.com/file/d/0B2vQhz9rrtU0Y2N3YlluVDM2R0k">Android version zip</a> </th>
-      <th> Tested </th>
-      <th> v0.11</th>
-    </tr>
-    <tr>
-      <th> Mac</th>
-      <th>20.2 MB</th>
-      <th> <a href="http://sumugames.com/samureye/builds/samureyeV011_MAC.zip">Mac version zip</a> </th>
-      <th> <a href="https://drive.google.com/file/d/0B2vQhz9rrtU0WjVSUG5XZzZ4cHc">Mac version zip</a> </th>
-      <th> Untested </th>
-      <th> v0.11</th>
-    </tr>
-    
-
-  </tbody></table>
-  </div>
-
--->
-<!--
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.carousel').carousel();
-  });
-</script>
-
 <script>
-$('carousel-control.left').click(function() {
-  $('#myCarousel').carousel('prev');
+$(document).ready(function() {
+  blueimp.Gallery(
+      document.getElementById('links-games').getElementsByTagName('a'),
+      {
+        container: '#blueimp-gallery',
+        carousel: true,
+        }
+    );
 });
-$('carousel-control.right').click(function() {
-  $('#myCarousel').carousel('next');
-});
-</script>
-
-<script>
-  function addPictures(){
-    var i = 0;
-    //For every Image, add the right picture
-    for each (image in singleGamePost.images){
-      if (i = 0){
-        <div class="item active">
-          <img src="/public/images/{{singleGamePost._id}}/image">
-        </div>
-      }
-      else{       
-        <div class="item">
-          <img src="/public/images/{{singleGamePost._id}}/image">
-        </div>  
-      }
-      i++;
-    }
-  }
-</script>
--->
-<!--
-<script language="javascript">
-    $(document).ready(function(){
-    $('.directorySlider').directorySlider({
-      animation: 'fade',
-      filebase: 'slide_',
-      directory: '/public/images/{{singleGamePost._id}}/',
-      extension: 'png',
-      numslides: 6,
-      height: 500
-      });
-    });
-</script>
-
-<script>
-document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-};
-</script>
-
-<script>
-blueimp.Gallery(
-    document.getElementById('links').getElementsByTagName('a'),
-    {
-        container: '#blueimp-gallery-carousel',
-        carousel: true
-    }
-);
-</script>
--->
+</script>-->

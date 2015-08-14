@@ -3,12 +3,19 @@ var sumuRouter = angular.module('sumuRouter', ['ui.router', 'sumuServices', 'ngA
 .config([
 '$stateProvider',
 '$urlRouterProvider',
+
 //'$locationProvider',
 
 //'$locationProvider.hashPrefix('!')', //Not needed if in html5 mode
 
 
 function($stateProvider, $urlRouterProvider, $locationProvider) {
+    /*
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'https://www.youtube.com/**'
+    ]);
+*/
     $urlRouterProvider.otherwise('home');
     //$locationProvider.html5Mode(true); //For disqus directive to work https://github.com/michaelbromley/angularUtils/tree/master/src/directives/disqus
 
@@ -50,10 +57,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/blog/{postId}',
             templateUrl: 'public/templates/post.html', //<- käytetään kyseistä templatea
             controller: 'singleBlogCtrl'
-        });
-
-        
-        
+        })
 }])
 
 
@@ -119,20 +123,31 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
     //'commentApi',
     'blogApi',
     '$stateParams',
+    '$sce',
     //Get the information of a single blogpost.
-    function ($scope, blogApi, $stateParams){
+    function ($scope, blogApi, $stateParams, $sce){
         $scope.blogPosts = blogApi.query(); //Send a request to get all posts (response defined in services.js)
         console.log("client side request for single blogpost");
         $scope.singlePost = blogApi.get({postId: $stateParams.postId}); //Request to get data of a single post.        
         //var comments = $scope.singleBlogPost.comments;
+
+        var videos = [];
+        var i = 0;
+        var path = 'http://www.youtube.com/embed/';
+        var currentBlog = {};
+        
         
         $scope.singlePost.$promise.then(function (result) {
-        currentBlog = $scope.singlePost;
-        //allComments = currentBlog.comments;
-        
-        //console.log(allComments);
-        $scope.singlePost = result;
-        $scope.url = $stateParams.postId;
+            currentBlog = result;
+            return currentBlog;
+        })
+        .then(function (result) {
+            videos = currentBlog.videos;
+            return videos;
+        })
+        .then(function (result) {
+            $scope.videoSource = path + result[i];
+            $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
         });
 
     //Add a comment to a single blogpost
@@ -149,7 +164,45 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
         $scope.formtext = '';
         $scope.formauthor = '';
         };
+    console.log(i);
+
+    $scope.nextVideo = function(){
+        i++;
+        if (i == videos.length) {
+            i = 0;
+            $scope.videoSource = path + videos[i];
+            $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+        }
+        else {
+            $scope.videoSource = path + videos[i];
+            $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            
+        }
+        
     }
+    $scope.prevVideo = function(){
+        i -= 1;
+        if (i == -1) {
+            i = videos.length - 1;
+            $scope.videoSource = path + videos[i];
+            $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+        }
+        else {
+            $scope.videoSource = path + videos[i];
+            $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+        }
+    }
+
+
+ }
+
+    /*
+    $scope.changeVideo = function($scope.video){
+        console.log(src);
+        'ytplayer'.src = "http://www.youtube.com/embed/"+$scope.video;
+        console.log(document.getElementById('ytplayer').src);
+    }
+    */
 
 ])
 
