@@ -9,7 +9,7 @@
 </form>-->
 <div class="row">
 <!-- show newest post in main panel!-->
-<div class="col-xs-8">
+<div class="col-xs-18 col-lg-9">
 <article>
   <div class="panel panel-default">
   <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
@@ -34,7 +34,7 @@
 	-->
 </div>
 <!-- Show all blog-posts in a side panel -->
-<div class="col-xs-4">
+<div class="col-xs-18 col-lg-3">
 	<div class="panel panel-default">
 		<div class="panel-heading"> <h3> Old posts: </h3> </div>
   		<div class="panel-body">
@@ -49,7 +49,7 @@
 </div>
 </div>
 <div class="row">
-<div class="col-xs-9">
+<div class="col-xs-18 col-lg-9">
 <h2 class="text-center">Gallery</h2>
 
 <div ng-repeat="image in singlePost.images">
@@ -64,15 +64,17 @@
 </div>
 
 <div class="row">
-<div class="col-xs-5">
-	<h2 class="text-center">Videos
-	<iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe>
+<div class="col-xs-18 col-lg-9">
+	<h2 class="text-center">Videos</h2>
+	<p class="text-center"><iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe></p>
 	
-	<div class="btn-group" role="group" aria-label="...">
-  		<button type="button" class="btn btn-default" ng-click="prevVideo()">Prev</button>
-  		<button type="button" class="btn btn-default" ng-click="nextVideo()">Next</button>
+	<div class="btn-group-wrap">
+		<div class="btn-group align-center" role="group" aria-label="...">
+  			<button type="button" class="btn btn-default" ng-click="prevVideo()">Prev</button>
+	  		<button type="button" class="btn btn-default" ng-click="nextVideo()">Next</button>
+		</div>
 	</div>
-	</h2>
+	
 
 </div>
 
@@ -127,7 +129,6 @@
 <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
 <script src="public/javascripts/blueimp-gallery.min.js"> </script>
 <script src="public/javascripts/bootstrap-image-gallery.min.js"></script>
-<script src="public/javascripts/blueimp-gallery-youtube.js"> </script>
 
 <!--
 <script src="public/javascripts/blueimp-gallery.min.js"> </script>

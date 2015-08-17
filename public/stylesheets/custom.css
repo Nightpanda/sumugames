@@ -1,4 +1,6 @@
-
+.btn-group-wrap {
+	text-align: center;
+}
 /*
 Row with equal height columns
 */
@@ -150,7 +152,15 @@ div.container4 p {
 }
 */
 
+#collapse-button{
+  font-family: 'Consolas','monaco',monospace; 
+  font-size: 20px;
+  color: #4d4d4d;	
+  border: none;
+}
+
 #main {
+	padding-top: 70px;
 	overflow:auto;
 	padding-bottom: 70px;
 }
@@ -177,7 +187,7 @@ div.container4 p {
 */
 
 .navbar-default {
-	margin-top: 10px;
+	margin-top: 0px;
 	background-color: #ccd6dd ;
 	border-color: #ccd6dd; 
 }
@@ -204,11 +214,41 @@ div.container4 p {
     color: #D46363;
 }
 
+.navbar-default .navbar-nav > li {
+  /*float: right;*/
+  /*position: relative;
+  padding-left: 70%;
+  white-space: nowrap;*/
+}
+.navbar-collapse {
+	float: right;
+	/*position: absolute;*/
+	border: none;
+	
+  /*padding-left: 70%;*/
+  /*margin-left: 90%;
+  white-space: nowrap;
+  
+  box-shadow: none;*/
+}
+
+.collapsing{
+	overflow: hidden!important;
+}
+
+.navbar-collapse.collapse-in {
+	display: block!important;
+}
+
 .navbar-default .navbar-nav > li > a {
   font-family: 'Consolas','monaco',monospace; 
   font-size: 20px;
   color: #4d4d4d;
 }
+
+/*.navbar-default .navbar-nav .navbar-right {
+	position: relative;
+}*/
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #D46363;

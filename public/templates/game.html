@@ -112,15 +112,17 @@
 </div>
 
 <div class="row">
-<div class="col-xs-5">
-  <h2 class="text-center">Videos
-  <iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe>
+<div class="col-xs-18 col-lg-9">
+  <h2 class="text-center">Videos</h2>
+  <p class="text-center"><iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe></p>
   
-  <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default" ng-click="prevVideo()">Prev</button>
-      <button type="button" class="btn btn-default" ng-click="nextVideo()">Next</button>
+  <div class="btn-group-wrap">
+    <div class="btn-group align-center" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" ng-click="prevVideo()">Prev</button>
+        <button type="button" class="btn btn-default" ng-click="nextVideo()">Next</button>
+    </div>
   </div>
-  </h2>
+  
 
 </div>
 
