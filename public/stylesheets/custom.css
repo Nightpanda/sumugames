@@ -324,6 +324,14 @@ a {
 	color: #e52d27;
 }
 
+.email {
+	color: #000;
+}
+
+.frontpagetext {
+	color: #FFF;
+}
+
 h2 {
 	font-family: 'Consolas','monaco',monospace; 
 	color:  #E8CDF5;

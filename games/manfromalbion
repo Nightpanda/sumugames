@@ -2,61 +2,32 @@
     "_id": "manfromalbion",
     "title": "Man from Albion",
     "body": [
-    			"A story of a man, seeking his past memories and trying to escape a mysterious ever-changing island.",
-				"Also known as the walking simulator."
+    			"A story of a man, seeking his past memories and trying to escape a mysterious, ever-changing island.",
+          "Development has ceased for now. A playable prototype is available with the core loop present."
 			],
    "images": 
    [
        "slide_1.png",
         "slide_2.png",
         "slide_3.png",
-        "slide_4.png",
-        "slide_5.png",
-        "slide_6.png"
+        "slide_4.png"
    ],
    "videos":
    [
    ],
     "features": 
     [
-        "feature1",
-        "feature2"
+        "Randomly generated island provides endless playtimes",
+        "Rhytm based combat-system",
+        "Unique artstyle"
     ],
         "version": "v0.1",
     "status": "In ice",
     "platforms": [
         {
         "platform": "PC",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "MAC",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "Linux",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "Android",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "HTML5",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
+        "link": "http://sumugames.com/albion/ManFromAlbion_v01.zip",
+        "size": "31.6 MB",
         "stability": "Tested",
         "version": "0.1a"
         }

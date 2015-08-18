@@ -15,7 +15,7 @@
   <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
   <div class="panel-body">
   	   	
-		<div ng-repeat="paragraph in singlePost.body">
+		<div ng-repeat="paragraph in singlePost.body" ng-bind-html="paragraph">
 			<p class="text-left">{{paragraph}}<br></p>
 		</div>
 		<p class="text-center">

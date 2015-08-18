@@ -2,8 +2,7 @@
     "_id": "samureye",
     "title": "Sam, Ur Eye!",
     "body": [
-    			"The village eldest, the last man standing, against the young punks.",
-				"Blood will be spilt."
+    			"A skill based two button dueling game for android and PC. Take control of the various characters fighting in beautifully drawn locales. Master the two different throwing styles, and be the last ninja standing!"
 			],
     "images": 
     [
@@ -22,46 +21,44 @@
    ],
     "features": 
     [
-        "feature1",
-        "feature2"
+        "Blood slider",
+        "Custom made 2D-ragdoll physics",
+        "Each character has a unique weapon",
+        "Asian themed artstyle",
+        "Easy to learn, hard to master dueling mechanics",
+        "Singleplayer modes (in development)"
     ],
-    "version": "v0.2a",
+    "version": "v0.11",
     "status": "In development",
     "platforms": [
         {
         "platform": "PC",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
+        "link": "http://sumugames.com/samureye/builds/samureyeV011_PC.zip",
+        "size": "17.9 MB",
         "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "MAC",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "Linux",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
+        "version": "0.11"
         },
         {
         "platform": "Android",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
+        "link": "http://sumugames.com/samureye/builds/samureyeV011_ANDROID.apk",
+        "size": "20.3 MB",
         "stability": "Tested",
-        "version": "0.1a"
+        "version": "0.11"
         },
         {
+        "platform": "MAC",
+        "link": "http://sumugames.com/samureye/builds/samureyeV011_MAC.zip",
+        "size": "20.2 MB",
+        "stability": "Untested",
+        "version": "0.11"
+        },
+
+        {
         "platform": "HTML5",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
+        "link": "http://sumugames.com/samureye/",
+        "size": "96.9 MB",
         "stability": "Tested",
-        "version": "0.1a"
+        "version": "0.11"
         }
     ]
 }

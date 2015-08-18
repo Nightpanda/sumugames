@@ -2,8 +2,9 @@
     "_id": "riseofthefreediver",
     "title": "Rise of the Freediver",
     "body": [
-    			"The sonuva freediver.",
-				"So much loot."
+    			"Rise of the Freediver is an Adventure/Simulation/Storytelling game of a boy who has lost his father to the sea. On his birthday the boy becomes a pearl diver and heads to explore the underwater world, discovering the wonders of the sea and what happened to his father. This is the first episode of the story, made in 3 weeks with Unity 3D.",
+				"This game was made for Indie Game Making Contest 2015: <a href='http://contest.gamedevfort.com/submission/402'>Rise of the freediver</a> (vote for it here if you liked it) :)"
+
 			],
      "images": 
    [
@@ -14,53 +15,29 @@
         "image005.png",
         "image006.png",
         "image007.png",
-        "image008.png"
+        "image008.png",
+        "image009.png"
    ],
-   "videos":
-   [
-   ],
+
     "features": 
     [
-        "feature1",
-        "feature2"
+        "Lootable seashells and treasures",
+        "Character level up system: swim speed and oxygen capacity increases when you gain levels",
+        "Ecosystem in the ocean: plankton, fish, jellyfish, eel, shark, and the Big Old Moray (bigger creatures chase and eat smaller ones)",
+        "Some creatures are hostile, watch out for them!",
+        "Seashells contain various pearls, can you find the very rare ones?",
+        "Spend your hard earned money in the shop",
+        "You need to buy equipment to reach deeper areas and stay alive"
     ],
     "version": "v1.0",
     "status": "Released",
     "platforms": [
         {
         "platform": "PC",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
+        "link": "http://sumugames.com/diver/Rise_of_the_freediver.zip",
+        "size": "64 MB",
         "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "MAC",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "Linux",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "Android",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
-        },
-        {
-        "platform": "HTML5",
-        "link": "http://www.sumugames.com",
-        "size": "xxx MB",
-        "stability": "Tested",
-        "version": "0.1a"
+        "version": "1.0"
         }
     ]
 }

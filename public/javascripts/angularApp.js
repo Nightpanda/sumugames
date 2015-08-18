@@ -1,5 +1,5 @@
 // angularApp.js
-var sumuRouter = angular.module('sumuRouter', ['ui.router', 'sumuServices', 'ngAnimate', 'anim-in-out'])//, 'angularUtils.directives.dirDisqus']) //'angularUtils.directives.dirDisqus'
+var sumuRouter = angular.module('sumuRouter', ['ui.router', 'sumuServices', 'ngAnimate', 'anim-in-out', 'ngSanitize'])//, 'angularUtils.directives.dirDisqus']) //'angularUtils.directives.dirDisqus'
 .config([
 '$stateProvider',
 '$urlRouterProvider',
