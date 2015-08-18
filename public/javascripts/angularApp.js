@@ -65,7 +65,8 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
     '$scope',
     'blogApi',
     '$stateParams',
-    function ($scope, blogApi, $stateParams){
+    '$sce',
+    function ($scope, blogApi, $stateParams, $sce){
         $scope.blogPosts = blogApi.query(); //Send a request to get all posts (response defined in services.js)
         /*
         blogApi.query().$promise.then(function (results) {
@@ -74,7 +75,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
 
         });
         */  
-        console.log($scope.blogPosts);
+        //console.log($scope.blogPosts);
         
         //It's now an array of all the blogposts
         //find the newest blogpost Id
@@ -84,12 +85,28 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
   
             lenBlogs = arrayBlogs.length;
             latestBlog = arrayBlogs[0];
-            console.log(latestBlog);
+            //console.log(latestBlog);
             blogId = latestBlog._id;
-            console.log(latestBlog._id);
-            $scope.singlePost = blogApi.get({postId: blogId }); //Request to get data of a single post.
-            console.log($scope.singlePost);
+            //console.log(latestBlog._id);
+            $scope.singlePost = blogApi.get({postId: blogId}); //Request to get data of a single post.
+            //console.log($scope.singlePost);
+            var videos = [];
+            var i = 0;
+            var path = 'http://www.youtube.com/embed/';
+            var currentBlog = {};
+        
+        
+            $scope.singlePost.$promise.then(function (result) {
+                videos = result.videos;
+                return videos;
+            })
+            .then(function (result) {
+                $scope.videoSource = path + result[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            });
         });
+
+        
 
 
         

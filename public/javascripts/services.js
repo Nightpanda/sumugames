@@ -4,7 +4,7 @@ var sumuServices = angular.module('sumuServices', ['ngResource']);
 sumuServices.factory('blogApi', ['$resource',
 	function($resource) {
 		//return $resource('public/blogs/:postId', {}, {
-		return $resource('http://sumugames.com/blogs/:postId', {}, {
+		return $resource('http://192.168.51.73:8080/blogs/:postId', {}, {
 		//return $resource('http://192.168.51.73:8080/public/users/:user',{}, {
 			query: {
 				method:'GET', 
@@ -22,7 +22,7 @@ sumuServices.factory('blogApi', ['$resource',
 
 sumuServices.factory('gameApi', ['$resource',
 	function($resource) {
-	return $resource('http://sumugames.com/games/:gameName', {}, {
+	return $resource('http://192.168.51.73:8080/:gameName', {}, {
 		//return $resource('http://192.168.51.73:8080/public/users/:user',{}, {
 			query: {
 				method:'GET', 
