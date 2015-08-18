@@ -28,7 +28,7 @@ Row with equal height columns
 .panel-default > .panel-heading {
 	font-family: 'Consolas','monaco',monospace; 
 	background-color: #220033; 
-	color: #FFF;
+	color: #E8CDF5;
 }
 
 .media{
@@ -125,8 +125,10 @@ div.container4 p {
 
 /*Background-images*/
 #bodybackground {
-	position: relative;
-	background: url("../images/hs-2006-14-a-hires_jpg.jpg") no-repeat black;
+	/*position: relative;*/
+	/*background: url("../images/hs-2006-14-a-hires_jpg.jpg") no-repeat black;*/
+	background: url("../images/justNebula1610.png"); /*no-repeat black;*/
+	background-attachment: fixed;
 }
 
 
@@ -172,7 +174,8 @@ div.container4 p {
     bottom:0px;
     height:70px;
     width:100%;
-    background:#ccd6dd;
+    /*background:#ccd6dd;*/
+    background:#5555bb;
     color: #FFF;
     z-index: 1;
     /*margin-bottom: 10px;*/
@@ -188,8 +191,11 @@ div.container4 p {
 
 .navbar-default {
 	margin-top: 0px;
-	background-color: #ccd6dd ;
-	border-color: #ccd6dd; 
+	/*background-color: #ccd6dd ;
+	border-color: #ccd6dd; */
+	/*background: #443399;*/
+	background: #5555bb;
+	border-color:#5555bb;
 }
 /*
 .navbar-brand
@@ -204,14 +210,24 @@ div.container4 p {
 .navbar-default .navbar-brand {
 	font-family: 'Consolas','monaco',monospace; 
 	font-size: 20px;
+	
+	/*color: #4d4d4d;*/
 	/*color: #F57373;*/
-	color: #4d4d4d;
+	/*color: #cc4444;*/
+
+	/*color: #FF9275;*/
+	color: #FF8F8F;
+	/*color: #FFBABA;*/
+	/*color: #FD7175;*/
+	/*color: #F57373;*/
+	text-shadow: 0 0 2px #000, 0 0 4px #000;
 	left: 0;
 	text-align: center;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #D46363;
+    /*color: #D46363;*/
+    color: #FFF;
 }
 
 .navbar-default .navbar-nav > li {
@@ -243,7 +259,9 @@ div.container4 p {
 .navbar-default .navbar-nav > li > a {
   font-family: 'Consolas','monaco',monospace; 
   font-size: 20px;
-  color: #4d4d4d;
+  /*color: #4d4d4d;*/
+  color: #FF8F8F;
+	text-shadow: 0 0 2px #000, 0 0 4px #000;
 }
 
 /*.navbar-default .navbar-nav .navbar-right {
@@ -251,7 +269,8 @@ div.container4 p {
 }*/
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #D46363;
+  /*color: #D46363;*/
+  color: #FFF;
 }
 
 
