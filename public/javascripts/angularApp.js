@@ -3,13 +3,13 @@ var sumuRouter = angular.module('sumuRouter', ['ui.router', 'sumuServices', 'ngA
 .config([
 '$stateProvider',
 '$urlRouterProvider',
-
-//'$locationProvider',
+'$locationProvider',
 
 //'$locationProvider.hashPrefix('!')', //Not needed if in html5 mode
 
 
 function($stateProvider, $urlRouterProvider, $locationProvider) {
+
     /*
     $sceDelegateProvider.resourceUrlWhitelist([
         'self',
@@ -68,17 +68,13 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
     '$sce',
     function ($scope, blogApi, $stateParams, $sce){
         $scope.blogPosts = blogApi.query(); //Send a request to get all posts (response defined in services.js)
-        /*
-        blogApi.query().$promise.then(function (results) {
-            // success
-            $scope.blogPosts = results;
-
-        });
-        */  
-        //console.log($scope.blogPosts);
         
         //It's now an array of all the blogposts
         //find the newest blogpost Id
+
+        var i = 0;
+        var path = 'http://www.youtube.com/embed/';
+        var videos = [];
 
         $scope.blogPosts.$promise.then(function (result) {
             arrayBlogs = $scope.blogPosts;
@@ -90,9 +86,9 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             //console.log(latestBlog._id);
             $scope.singlePost = blogApi.get({postId: blogId}); //Request to get data of a single post.
             //console.log($scope.singlePost);
-            var videos = [];
-            var i = 0;
-            var path = 'http://www.youtube.com/embed/';
+            
+            
+            
             var currentBlog = {};
         
         
@@ -106,12 +102,31 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             });
         });
 
-        
+        $scope.nextVideo = function(){
+            i++;
+            if (i == videos.length) {
+                i = 0;
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+            else {
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+        }
+        $scope.prevVideo = function(){
+            i -= 1;
+            if (i == -1) {
+                i = videos.length - 1;
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+            else {
+                $scope.videoSource = path + videos[i];
+                $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
+            }
+        }  
 
-
-        
-
-        
     //Add a single blogpost with ngresource method save
     $scope.addBlogPost = function(){
         if(!$scope.formtitle || $scope.formtitle === '') { return; } //if no title has been submited, don't post
@@ -182,7 +197,6 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
         $scope.formtext = '';
         $scope.formauthor = '';
         };
-    console.log(i);
 
     $scope.nextVideo = function(){
         i++;
