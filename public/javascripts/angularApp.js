@@ -75,6 +75,9 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
         var i = 0;
         var path = 'http://www.youtube.com/embed/';
         var videos = [];
+        //var currentBlog = {};
+        var showVideo = false;
+        var showButtons = false;
 
         $scope.blogPosts.$promise.then(function (result) {
             arrayBlogs = $scope.blogPosts;
@@ -87,11 +90,6 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             $scope.singlePost = blogApi.get({postId: blogId}); //Request to get data of a single post.
             //console.log($scope.singlePost);
             
-            
-            
-            var currentBlog = {};
-        
-        
             $scope.singlePost.$promise.then(function (result) {
                 videos = result.videos;
                 return videos;
@@ -101,6 +99,36 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
                 $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
             });
         });
+
+
+        $scope.showVideo = function(){
+            if (videos.length == 0){
+                showVideo = false;
+                return false;
+            } 
+            else if (videos.length == 1){
+                showVideo = true;
+                return true;
+            }
+            else {
+                showVideo = true;
+                return true;
+            }
+        }
+        $scope.showButtons = function(){
+            if (!showVideo){
+                showButtons = false;
+                return false;
+            } 
+            else if (videos.length == 1){
+                showButtons = false;
+                return false;  
+            } 
+            else {
+                showButtons = false;
+                return true;        
+            }        
+        }
 
         $scope.nextVideo = function(){
             i++;
@@ -167,6 +195,8 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
         var i = 0;
         var path = 'http://www.youtube.com/embed/';
         var currentBlog = {};
+        var showVideo = false;
+        var showButtons = false;
         
         
         $scope.singlePost.$promise.then(function (result) {
@@ -174,7 +204,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             return currentBlog;
         })
         .then(function (result) {
-            videos = currentBlog.videos;
+            videos = result.videos;
             return videos;
         })
         .then(function (result) {
@@ -182,6 +212,34 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
         });
 
+        $scope.showVideo = function(){
+            if (videos.length == 0){
+                showVideo = false;
+                return false;
+            } 
+            else if (videos.length == 1){
+                showVideo = true;
+                return true;
+            }
+            else {
+                showVideo = true;
+                return true;
+            }
+        }
+        $scope.showButtons = function(){
+            if (!showVideo){
+                showButtons = false;
+                return false;
+            } 
+            else if (videos.length == 1){
+                showButtons = false;
+                return false;  
+            } 
+            else {
+                showButtons = false;
+                return true;        
+            }        
+        }
 
     //Add a comment to a single blogpost
     $scope.addComment = function(){
@@ -298,20 +356,23 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
         var videos = [];
         var i = 0;
         var path = 'http://www.youtube.com/embed/';
-        var currentGame = {};
+        var showVideo = false;
+        var showButtons = false;
+        //var currentGame = {};
 
-        $scope.gamePosts = gameApi.query(); //Send a request to get all posts (response defined in services.js)
+        //$scope.gamePosts = gameApi.query(); //Send a request to get all posts (response defined in services.js)
         console.log("client side request for single game");
 
 
         $scope.singleGamePost = gameApi.get({gameName: $stateParams.gameName}); //Request to get data of a single post.
         
         $scope.singleGamePost.$promise.then(function (result) {
-            currentGame = result;
-            return currentGame;
+            //currentGame = result;
+            //return currentGame;
+            return result;
         })
         .then(function (result) {
-            videos = currentGame.videos;
+            videos = result.videos;
             return videos;
         })
         .then(function (result) {
@@ -319,6 +380,36 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
             $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
         });
 
+        $scope.showVideo = function(){
+            if (videos.length == 0){
+                showVideo = false;
+                return false;
+            } 
+            else if (videos.length == 1){
+                showVideo = true;
+                return true;
+            }
+            else {
+                showVideo = true;
+                return true;
+            }
+        }
+        $scope.showButtons = function(){
+            if (!showVideo){
+                showButtons = false;
+                return false;
+            } 
+            else if (videos.length == 1){
+                showButtons = false;
+                return false;  
+            } 
+            else {
+                showButtons = false;
+                return true;        
+            }        
+        }
+
+        
         $scope.nextVideo = function(){
             i++;
             if (i == videos.length) {
@@ -330,7 +421,7 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
                 $scope.videoSource = path + videos[i];
                 $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
             }
-        }
+        };
         $scope.prevVideo = function(){
             i -= 1;
             if (i == -1) {
@@ -342,7 +433,8 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
                 $scope.videoSource = path + videos[i];
                 $scope.videoSource = $sce.trustAsResourceUrl($scope.videoSource);
             }
-        }
+        };
+
     }
 ])
     
