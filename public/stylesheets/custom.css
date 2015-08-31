@@ -374,6 +374,11 @@ h3 {
 
 }
 
+.gamespagetext {
+	font-family: 'Consolas','monaco',monospace; 
+	color:  #E8CDF5;
+}
+
 h4 {
 	font-family: 'Consolas','monaco',monospace; 
 	color:  #E8CDF5;	
