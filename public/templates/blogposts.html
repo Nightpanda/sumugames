@@ -9,7 +9,7 @@
 </form>-->
 
 <!-- show current post in main panel!-->
-<div class="col-xs-18 col-lg-9 animate-column">
+<div class="col-xs-18 col-lg-9">
 <article>
   <div class="panel panel-default">
   <div class="panel-heading"> <h1> {{singlePost.title}} </h1> </div>
@@ -52,7 +52,7 @@
 </div>
 </div>
 <div class="row">
-<div class="col-xs-18 col-lg-9 animate-column">
+<div class="col-xs-18 col-lg-9">
 <h2 class="text-center">Gallery</h2>
 
 <div ng-repeat="image in singlePost.images">
@@ -68,7 +68,7 @@
 
 
 <div class="row" ng-hide="!showVideo()">
-  <div class="col-xs-18 col-lg-9 animate-column">
+  <div class="col-xs-18 col-lg-9">
       <h2 class="text-center">Videos</h2>
       <p class="text-center"><iframe id="ytplayer" type="text/html" width="420" height="315" ng-src="{{videoSource}}" frameborder="0" allowfullscreen></iframe></p>
     
@@ -81,39 +81,20 @@
   </div>
 </div>
 <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
-<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
-    <!-- The container for the modal slides -->
+<div class="row">
+<div class="col-sm-24 col-md-12">
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
     <div class="slides"></div>
-    <!-- Controls for the borderless lightbox -->
     <!--<h3 class="title"></h3>-->
     <a class="prev">‹</a>
     <a class="next">›</a>
     <a class="close">×</a>
     <a class="play-pause"></a>
     <ol class="indicator"></ol>
-    <!-- The modal dialog, which will be used to wrap the lightbox content -->
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title"></h4>
-                </div>
-                <div class="modal-body next"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left prev">
-                        <i class="glyphicon glyphicon-chevron-left"></i>
-                        Previous
-                    </button>
-                    <button type="button" class="btn btn-primary next">
-                        Next
-                        <i class="glyphicon glyphicon-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+</div>
+</div>
+
 <!--
 	<h2 class="text-center"> Image-gallery</h2>
 
@@ -132,7 +113,7 @@
 <script src="public/javascripts/blueimp-gallery.min.js"> </script>
 
 <!--<script src="public/javascripts/blueimp-gallery-youtube.js"> </script>-->
-<script src="public/javascripts/bootstrap-image-gallery.min.js"></script>
+<!--<script src="public/javascripts/bootstrap-image-gallery.min.js"></script>-->
 
 <!--
 <script src="public/javascripts/blueimp-gallery.min.js"> </script>

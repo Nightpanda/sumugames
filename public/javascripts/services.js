@@ -4,7 +4,7 @@ var sumuServices = angular.module('sumuServices', ['ngResource']);
 sumuServices.factory('blogApi', ['$resource',
 	function($resource) {
 		//return $resource('public/blogs/:postId', {}, {
-		//return $resource('http://192.168.10.51:8080/sumugames/blogs/:postId', {}, {
+		//return $resource('http://192.168.51.73:8080/sumugames/blogs/:postId', {}, {
 		return $resource('http:/sumugames.com/blogs/:postId', {}, {
 		//return $resource('http://192.168.51.73:8080/public/users/:user',{}, {
 			query: {

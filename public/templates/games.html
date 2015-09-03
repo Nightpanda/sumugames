@@ -13,7 +13,7 @@
 </form>
 -->
 <div class="row">
-    <div class="col-lg-3 col-sm-5 col-xs-9 animate-column" ng-repeat="game in gamePosts">
+    <div class="col-lg-3 col-sm-5 col-xs-9" ng-repeat="game in gamePosts">
       <a ui-sref="game({gameName: game._id})">
         <img ng-src="public/images/{{game._id}}/thumb.png" class="thumbnail img-responsive">
       </a>
