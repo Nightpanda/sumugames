@@ -99,7 +99,7 @@
             urlProperty: 'href',
             // The gallery listens for transitionend events before triggering the
             // opened and closed events, unless the following option is set to false:
-            displayTransition: false,
+            displayTransition: true,
             // Defines if the gallery slides are cleared from the gallery modal,
             // or reused for the next gallery initialization:
             clearSlides: true,
@@ -126,7 +126,7 @@
             // Stop touch events from bubbling up to ancestor elements of the Gallery:
             stopTouchEventsPropagation: false,
             // Hide the page scrollbars:
-            hidePageScrollbars: false,
+            hidePageScrollbars: true,
             // Stops any touches on the container from scrolling the page:
             disableScroll: true,
             // Carousel mode (shortcut for carousel specific options):
