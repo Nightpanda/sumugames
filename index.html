@@ -59,12 +59,23 @@
       <!--<ul class="list-inline text-center">-->
         <!--<p class="text-center">-->
           <!--Main panel-->
-          <div ui-view class="anim-in-out anim-swap"></div>
+          <!--<div ui-view class="anim-in-out anim-swap"></div>-->
+          <div ui-view></div>
         <!--</p>-->
       <!--</ul>-->
       </div>
     </div>
 </div>
+</div>
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <!--<h3 class="title"></h3>-->
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
 </div>
 
 
@@ -114,6 +125,8 @@
   </div>
 </div>
 </footer>
+
+
     
 
  
@@ -147,6 +160,9 @@
 
 
     <script src="http://code.angularjs.org/1.2.2/angular-animate.min.js"></script> <!-- animations -->
+
+    <script src="public/javascripts/jquery.blueimp-gallery.min.js"></script>
+    <script src="public/javascripts/blueimp-gallery.min.js"> </script>
 
     <!-- hides the menu button-->
     <script language="javascript">
